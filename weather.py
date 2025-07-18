@@ -6,11 +6,8 @@ from flask import Flask, request, jsonify
 app = Flask(__name__)
 CORS(app)
 
-
-
-
 def weather_report(city):
-    api_key = "1bd0be556664fb2dcaa474e56927746d"
+    api_key = "1bd0be556664fb2dcaa474e56927746d"  # Replace with your actual API key
     base_url = f"http://api.openweathermap.org/data/2.5/weather?q={city}&appid={api_key}&units=metric"
     try:
         response = requests.get(base_url)
@@ -38,8 +35,6 @@ def api_weather():
         "Weather": weather_desc,
         "Wind Speed": wind_speed
     }), 200
-    
-    
-    
+
 if __name__ == '__main__':
     app.run(port=5001)
